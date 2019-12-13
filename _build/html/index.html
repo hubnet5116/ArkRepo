@@ -209,14 +209,14 @@
 </div>
 <div class="section" id="step-4-remove-old-packages">
 <h2>Step 4: Remove Old Packages<a class="headerlink" href="#step-4-remove-old-packages" title="Permalink to this headline">¶</a></h2>
-<p>Log back in and remove any unneccessary packages:</p>
+<p>Log back in and remove any unnecessary packages:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">autoremove</span> <span class="o">-</span><span class="n">y</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="step-5-install-required-libraries">
 <h2>Step 5: Install Required Libraries<a class="headerlink" href="#step-5-install-required-libraries" title="Permalink to this headline">¶</a></h2>
-<p>Install the latest packages that contain the lib32gccl package. This is neccessary for installing the SteamCMD. For Ubuntu 18.04 this package is found in the libc6 package at the time of this writing:</p>
+<p>Install the latest packages that contain the lib32gccl package. This is necessary for installing the SteamCMD. For Ubuntu 18.04 this package is found in the libc6 package at the time of this writing:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">libc6</span> <span class="n">libc6</span><span class="o">-</span><span class="n">dev</span>
 </pre></div>
 </div>

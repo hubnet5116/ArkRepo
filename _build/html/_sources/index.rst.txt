@@ -58,7 +58,7 @@ Reboot your OS to apply updates to the kernel if their are any::
 Step 4: Remove Old Packages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Log back in and remove any unneccessary packages::
+Log back in and remove any unnecessary packages::
 
  sudo apt autoremove -y
 
@@ -66,7 +66,7 @@ Log back in and remove any unneccessary packages::
 Step 5: Install Required Libraries
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Install the latest packages that contain the lib32gccl package. This is neccessary for installing the SteamCMD. For Ubuntu 18.04 this package is found in the libc6 package at the time of this writing::
+Install the latest packages that contain the lib32gccl package. This is necessary for installing the SteamCMD. For Ubuntu 18.04 this package is found in the libc6 package at the time of this writing::
 
  sudo apt install -y libc6 libc6-dev
 
