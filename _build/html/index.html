@@ -1,0 +1,775 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Ark Dedicated Server Setup + All DLCs (2019): &mdash; Ark Dedicated Server Setup + All DLC v0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="#" class="icon icon-home"> Ark Dedicated Server Setup + All DLC
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Ark Dedicated Server Setup + All DLCs (2019):</a></li>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#steps-involved">Steps involved</a><ul>
+<li><a class="reference internal" href="#step-1-launch-ubuntu">Step 1: Launch Ubuntu</a></li>
+<li><a class="reference internal" href="#step-2-update-os">Step 2: Update OS</a></li>
+<li><a class="reference internal" href="#step-3-reboot-server">Step 3: Reboot Server</a></li>
+<li><a class="reference internal" href="#step-4-remove-old-packages">Step 4: Remove Old Packages</a></li>
+<li><a class="reference internal" href="#step-5-install-required-libraries">Step 5: Install Required Libraries</a></li>
+<li><a class="reference internal" href="#step-6-set-max-file-limit">Step 6: Set Max File Limit</a></li>
+<li><a class="reference internal" href="#step-7-set-os-corefiles-limit">Step 7: Set OS Corefiles Limit</a></li>
+<li><a class="reference internal" href="#step-8-enable-pam-limits">Step 8: Enable PAM Limits</a></li>
+<li><a class="reference internal" href="#step-9-install-steamcmd">Step 9: Install SteamCMD</a></li>
+<li><a class="reference internal" href="#step-10-create-ark-server-main-directory">Step 10: Create Ark Server Main Directory</a></li>
+<li><a class="reference internal" href="#step-11-install-ark-server-via-steam">Step 11: Install Ark Server via Steam</a></li>
+<li><a class="reference internal" href="#step-12-setup-game-user-settings-for-ark-server">Step 12: Setup Game User Settings for Ark Server</a></li>
+<li><a class="reference internal" href="#step-13-set-ports-for-ark-server">Step 13: Set Ports for Ark Server</a></li>
+<li><a class="reference internal" href="#step-14-set-directory-ownership">Step 14: Set Directory Ownership</a></li>
+<li><a class="reference internal" href="#step-15-create-systemd-unit-files">Step 15: Create SystemD Unit Files</a></li>
+<li><a class="reference internal" href="#step-16-configure-ark-server-systemd-unit-files">Step 16: Configure Ark Server SystemD Unit Files</a></li>
+<li><a class="reference internal" href="#step-17-allow-systemd-to-identify-ark-units">Step 17: Allow SystemD to identify Ark Units</a></li>
+<li><a class="reference internal" href="#step-18-start-the-ark-server-daemons">Step 18: Start the Ark Server Daemons</a></li>
+<li><a class="reference internal" href="#step-19-check-to-see-if-the-ark-servers-are-listening">Step 19: Check to see if the Ark Servers are listening</a></li>
+<li><a class="reference internal" href="#step-20-connect-to-your-ark-server-via-steam-client">Step 20: Connect to your Ark Server via Steam Client</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Ark Dedicated Server Setup + All DLC</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>Ark Dedicated Server Setup + All DLCs (2019):</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ark-dedicated-server-setup-all-dlcs-2019">
+<h1>Ark Dedicated Server Setup + All DLCs (2019):<a class="headerlink" href="#ark-dedicated-server-setup-all-dlcs-2019" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+<div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>This is a doc on how to build an Ark Survival Evolved Server, with all DLCs installed using a shared cluster method for allowing Items, Dinos and players to transfer between world maps. I’ve tested this guide out multiple times and have my own running servers for Ark using the steps I’ve provided here.</p>
+</div>
+<div class="section" id="steps-involved">
+<h1>Steps involved<a class="headerlink" href="#steps-involved" title="Permalink to this headline">¶</a></h1>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>This guide requires a basic understanding of Linux System Administration. Their are several concepts with regards to Linux that are being applied here including the creation of SystemD Units and modifying of Linux File Heirarchy for Ubuntu 18.04. These concepts I won’t be going into much descussion here and it is assumed that you are aware of these concepts when you proceed with this guide. Please work with caution.</p>
+</div>
+<p>This guide will be following the guide found at <a class="reference external" href="https://survivetheark.com/index.php?/forums/topic/87419-guide-cluster-setup/">https://survivetheark.com/index.php?/forums/topic/87419-guide-cluster-setup/</a> and information provided from <a class="reference external" href="https://survivetheark.com/index.php?/forums/topic/85463-scorched-earth-technicaldetail-faq-ongoing/">https://survivetheark.com/index.php?/forums/topic/85463-scorched-earth-technicaldetail-faq-ongoing/</a> respectfully.</p>
+<p>For this build I used <code class="docutils literal notranslate"><span class="pre">Ubuntu</span> <span class="pre">18.04</span> <span class="pre">LTS</span></code> as my OS. This setup is a mixture of the <code class="docutils literal notranslate"><span class="pre">Method</span> <span class="pre">1</span></code> used in the above setup with my own spin on it for use with modern Ubuntu 18.04, since 14.04 LTS (as referenced in the official Ark Documentation) has since been depreciated.</p>
+<p>I’ve created an Ark Dedicated server with a shared Cluster ID using individual save file locations for each map. Uploaded items to the Obelisks will go to the Cluster save directory to be shared amoungst the maps. This includes the base game along with The Center, Scorched Earth, Ragnarok, Abberation, Extinction and Valguero maps.</p>
+<p>At the time of this writing the version of Ark was <code class="docutils literal notranslate"><span class="pre">v303.1</span></code>, before the Genesis Expansion release. It is currently unknown whether you can transfer Items and Dinos from The Island map back to Scorched Earth though. Will test this out in future.</p>
+<p>Lets get started.</p>
+<div class="section" id="step-1-launch-ubuntu">
+<h2>Step 1: Launch Ubuntu<a class="headerlink" href="#step-1-launch-ubuntu" title="Permalink to this headline">¶</a></h2>
+<p>Launch a running Ubuntu 18.04 LTS Server. This can be a baremetal, virtual machine or a container respectfully. For this guide I used AWS’s EC2 virtual instance.</p>
+</div>
+<div class="section" id="step-2-update-os">
+<h2>Step 2: Update OS<a class="headerlink" href="#step-2-update-os" title="Permalink to this headline">¶</a></h2>
+<p>Once your instance/OS is launched, log into it and perform a full update and upgrade with the following command. Please note you will need to use elevated privilages to execute this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">update</span> <span class="o">-</span><span class="n">y</span> <span class="o">&amp;&amp;</span> <span class="n">sudo</span> <span class="n">apt</span> <span class="n">full</span><span class="o">-</span><span class="n">upgrade</span> <span class="o">-</span><span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-3-reboot-server">
+<h2>Step 3: Reboot Server<a class="headerlink" href="#step-3-reboot-server" title="Permalink to this headline">¶</a></h2>
+<p>Reboot your OS to apply updates to the kernel if their are any:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">reboot</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-4-remove-old-packages">
+<h2>Step 4: Remove Old Packages<a class="headerlink" href="#step-4-remove-old-packages" title="Permalink to this headline">¶</a></h2>
+<p>Log back in and remove any unneccessary packages:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">autoremove</span> <span class="o">-</span><span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-5-install-required-libraries">
+<h2>Step 5: Install Required Libraries<a class="headerlink" href="#step-5-install-required-libraries" title="Permalink to this headline">¶</a></h2>
+<p>Install the latest packages that contain the lib32gccl package. This is neccessary for installing the SteamCMD. For Ubuntu 18.04 this package is found in the libc6 package at the time of this writing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">libc6</span> <span class="n">libc6</span><span class="o">-</span><span class="n">dev</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-6-set-max-file-limit">
+<h2>Step 6: Set Max File Limit<a class="headerlink" href="#step-6-set-max-file-limit" title="Permalink to this headline">¶</a></h2>
+<p>To ensure that the server’s open files limit is high enough you will need to edit the <code class="docutils literal notranslate"><span class="pre">/etc/sysctl.conf</span></code> file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">vim</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">sysctl</span><span class="o">.</span><span class="n">conf</span>
+</pre></div>
+</div>
+<p>Add the following line and save the file:</p>
+<p><cite>fs.file-max=100000</cite></p>
+</div>
+<div class="section" id="step-7-set-os-corefiles-limit">
+<h2>Step 7: Set OS Corefiles Limit<a class="headerlink" href="#step-7-set-os-corefiles-limit" title="Permalink to this headline">¶</a></h2>
+<p>Add the following lines to <code class="docutils literal notranslate"><span class="pre">/etc/security/limits.conf</span></code>:</p>
+<div class="line-block">
+<div class="line"><cite>*             soft    nofile          1000000</cite></div>
+<div class="line"><cite>*             hard    nofile          1000000</cite></div>
+</div>
+</div>
+<div class="section" id="step-8-enable-pam-limits">
+<h2>Step 8: Enable PAM Limits<a class="headerlink" href="#step-8-enable-pam-limits" title="Permalink to this headline">¶</a></h2>
+<p>Add the following to the <code class="docutils literal notranslate"><span class="pre">/etc/pam.d/common-session</span></code> file:</p>
+<p><cite>session required pam_limits.so</cite></p>
+</div>
+<div class="section" id="step-9-install-steamcmd">
+<h2>Step 9: Install SteamCMD<a class="headerlink" href="#step-9-install-steamcmd" title="Permalink to this headline">¶</a></h2>
+<p>Add the repository that contains the SteamCMD and install the it:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">add</span><span class="o">-</span><span class="n">apt</span><span class="o">-</span><span class="n">repository</span> <span class="n">multiverse</span>
+<span class="n">sudo</span> <span class="n">dpkg</span> <span class="o">--</span><span class="n">add</span><span class="o">-</span><span class="n">architecture</span> <span class="n">i386</span>
+<span class="n">sudo</span> <span class="n">apt</span> <span class="n">update</span> <span class="o">-</span><span class="n">y</span>
+<span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">lib32gcc1</span> <span class="n">steamcmd</span> <span class="o">-</span><span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-10-create-ark-server-main-directory">
+<h2>Step 10: Create Ark Server Main Directory<a class="headerlink" href="#step-10-create-ark-server-main-directory" title="Permalink to this headline">¶</a></h2>
+<p>Make a directory for your Ark servers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="n">ArkServers</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-11-install-ark-server-via-steam">
+<h2>Step 11: Install Ark Server via Steam<a class="headerlink" href="#step-11-install-ark-server-via-steam" title="Permalink to this headline">¶</a></h2>
+<p>Log into Steam as an anonymous user using the SteamCMD and download the latest Ark Server files:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">steamcmd</span>
+ <span class="n">Steam</span><span class="o">&gt;</span> <span class="n">login</span> <span class="n">anonymous</span>
+ <span class="n">Steam</span><span class="o">&gt;</span> <span class="n">force_install_dir</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">ubuntu</span><span class="o">/</span><span class="n">ArkServers</span>
+ <span class="n">Steam</span><span class="o">&gt;</span> <span class="n">app_update</span> <span class="mi">376030</span> <span class="n">validate</span>
+ <span class="n">Steam</span><span class="o">&gt;</span> <span class="n">exit</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-12-setup-game-user-settings-for-ark-server">
+<h2>Step 12: Setup Game User Settings for Ark Server<a class="headerlink" href="#step-12-setup-game-user-settings-for-ark-server" title="Permalink to this headline">¶</a></h2>
+<p>Create the file <code class="docutils literal notranslate"><span class="pre">/home/ubuntu/ArkServers/ShooterGame/Saved/Config/LinuxServer/GameUserSettings.ini</span></code> and paste the following content in it. Please see GameUserSettings.ini in <a class="reference external" href="https://ark.gamepedia.com/Server_Configuration">https://ark.gamepedia.com/Server_Configuration</a> for more detailed info on the configuration option meanings.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="o">/</span><span class="n">Script</span><span class="o">/</span><span class="n">ShooterGame</span><span class="o">.</span><span class="n">ShooterGameUserSettings</span><span class="p">]</span>
+<span class="n">MasterAudioVolume</span><span class="o">=</span><span class="mf">1.000000</span>
+<span class="n">MusicAudioVolume</span><span class="o">=</span><span class="mf">1.000000</span>
+<span class="n">SFXAudioVolume</span><span class="o">=</span><span class="mf">1.000000</span>
+<span class="n">VoiceAudioVolume</span><span class="o">=</span><span class="mf">1.000000</span>
+<span class="n">UIScaling</span><span class="o">=</span><span class="mf">1.000000</span>
+<span class="n">UIQuickbarScaling</span><span class="o">=</span><span class="mf">0.650000</span>
+<span class="n">CameraShakeScale</span><span class="o">=</span><span class="mf">0.650000</span>
+<span class="n">bFirstPersonRiding</span><span class="o">=</span><span class="kc">True</span>
+<span class="n">bThirdPersonPlayer</span><span class="o">=</span><span class="kc">True</span>
+<span class="n">bShowStatusNotificationMessages</span><span class="o">=</span><span class="kc">True</span>
+<span class="n">TrueSkyQuality</span><span class="o">=</span><span class="mf">0.000000</span>
+<span class="n">FOVMultiplier</span><span class="o">=</span><span class="mf">1.000000</span>
+<span class="n">GroundClutterDensity</span><span class="o">=</span><span class="mf">0.000000</span>
+<span class="n">bFilmGrain</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">bMotionBlur</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">bUseDistanceFieldAmbientOcclusion</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">bUseSSAO</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">bShowChatBox</span><span class="o">=</span><span class="kc">True</span>
+<span class="n">bCameraViewBob</span><span class="o">=</span><span class="kc">True</span>
+<span class="n">bInvertLookY</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">bFloatingNames</span><span class="o">=</span><span class="kc">True</span>
+<span class="n">bChatBubbles</span><span class="o">=</span><span class="kc">True</span>
+<span class="n">bHideServerInfo</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">bJoinNotifications</span><span class="o">=</span><span class="kc">True</span>
+<span class="n">bCraftablesShowAllItems</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">bLocalInventoryItemsShowAllItems</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">bLocalInventoryCraftingShowAllItems</span><span class="o">=</span><span class="kc">True</span>
+<span class="n">bRemoteInventoryItemsShowAllItems</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">bRemoteInventoryCraftingShowAllItems</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">bRemoteInventoryShowEngrams</span><span class="o">=</span><span class="kc">True</span>
+<span class="n">LookLeftRightSensitivity</span><span class="o">=</span><span class="mf">1.000000</span>
+<span class="n">LookUpDownSensitivity</span><span class="o">=</span><span class="mf">1.000000</span>
+<span class="n">GraphicsQuality</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">ActiveLingeringWorldTiles</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">ClientNetQuality</span><span class="o">=</span><span class="mi">3</span>
+<span class="n">LastServerSearchType</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">LastServerSort</span><span class="o">=</span><span class="mi">2</span>
+<span class="n">LastPVESearchType</span><span class="o">=-</span><span class="mi">1</span>
+<span class="n">LastDLCTypeSearchType</span><span class="o">=-</span><span class="mi">1</span>
+<span class="n">LastServerSortAsc</span><span class="o">=</span><span class="kc">True</span>
+<span class="n">LastAutoFavorite</span><span class="o">=</span><span class="kc">True</span>
+<span class="n">LastServerSearchHideFull</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">LastServerSearchProtected</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">HideItemTextOverlay</span><span class="o">=</span><span class="kc">True</span>
+<span class="n">bQuickToggleItemNames</span><span class="o">=</span><span class="kc">True</span>
+<span class="n">bDistanceFieldShadowing</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">LODScalar</span><span class="o">=</span><span class="mf">0.780000</span>
+<span class="n">bToggleToTalk</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">HighQualityMaterials</span><span class="o">=</span><span class="kc">True</span>
+<span class="n">HighQualitySurfaces</span><span class="o">=</span><span class="kc">True</span>
+<span class="n">bTemperatureF</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">bDisableTorporEffect</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">bChatShowSteamName</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">bChatShowTribeName</span><span class="o">=</span><span class="kc">True</span>
+<span class="n">bReverseTribeLogOrder</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">EmoteKeyBind1</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">EmoteKeyBind2</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">bNoBloodEffects</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">bLowQualityVFX</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">bSpectatorManualFloatingNames</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">bSuppressAdminIcon</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">bUseSimpleDistanceMovement</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">bDisableMeleeCameraSwingAnims</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">bHighQualityAnisotropicFiltering</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">bUseLowQualityLevelStreaming</span><span class="o">=</span><span class="kc">True</span>
+<span class="n">bPreventInventoryOpeningSounds</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">bPreventItemCraftingSounds</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">bPreventHitMarkers</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">bPreventCrosshair</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">bPreventColorizedItemNames</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">bHighQualityLODs</span><span class="o">=</span><span class="kc">True</span>
+<span class="n">bExtraLevelStreamingDistance</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">bEnableColorGrading</span><span class="o">=</span><span class="kc">True</span>
+<span class="n">DOFSettingInterpTime</span><span class="o">=</span><span class="mf">0.000000</span>
+<span class="n">bDisableBloom</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">bDisableLightShafts</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">LastJoinedSessionPerCategory</span><span class="o">=</span><span class="s2">&quot; &quot;</span>
+<span class="n">LastJoinedSessionPerCategory</span><span class="o">=</span><span class="s2">&quot; &quot;</span>
+<span class="n">LastJoinedSessionPerCategory</span><span class="o">=</span><span class="s2">&quot; &quot;</span>
+<span class="n">LastJoinedSessionPerCategory</span><span class="o">=</span><span class="s2">&quot; &quot;</span>
+<span class="n">LastJoinedSessionPerCategory</span><span class="o">=</span><span class="s2">&quot; &quot;</span>
+<span class="n">LastJoinedSessionPerCategory</span><span class="o">=</span><span class="s2">&quot; &quot;</span>
+<span class="n">LastJoinedSessionPerCategory</span><span class="o">=</span><span class="s2">&quot; &quot;</span>
+<span class="n">LastJoinedSessionPerCategory</span><span class="o">=</span><span class="s2">&quot; &quot;</span>
+<span class="n">LastJoinedSessionPerCategory</span><span class="o">=</span><span class="s2">&quot; &quot;</span>
+<span class="n">bDisableMenuTransitions</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">bEnableInventoryItemTooltips</span><span class="o">=</span><span class="kc">True</span>
+<span class="n">bRemoteInventoryShowCraftables</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">bNoTooltipDelay</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">LocalItemSortType</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">LocalCraftingSortType</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">RemoteItemSortType</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">RemoteCraftingSortType</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">VersionMetaTag</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">ShowExplorerNoteSubtitles</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">DisableMenuMusic</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">DisableDefaultCharacterItems</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">bHideFloatingPlayerNames</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">bHideGamepadItemSelectionModifier</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">bToggleExtendedHUDInfo</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">PlayActionWheelClickSound</span><span class="o">=</span><span class="kc">True</span>
+<span class="n">MaxAscensionLevel</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">bHostSessionHasBeenOpened</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">bForceTPVCameraOffset</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">bDisableTPVCameraInterpolation</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">bFPVClimbingGear</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">bFPVGlidingGear</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">Gamma1</span><span class="o">=</span><span class="mf">2.200000</span>
+<span class="n">Gamma2</span><span class="o">=</span><span class="mf">3.000000</span>
+<span class="n">AmbientSoundVolume</span><span class="o">=</span><span class="mf">1.000000</span>
+<span class="n">bAllowAnimationStaggering</span><span class="o">=</span><span class="kc">True</span>
+<span class="n">bLowQualityAnimations</span><span class="o">=</span><span class="kc">True</span>
+<span class="n">bUseVSync</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">MacroCtrl0</span><span class="o">=</span>
+<span class="n">MacroCtrl1</span><span class="o">=</span>
+<span class="n">MacroCtrl2</span><span class="o">=</span>
+<span class="n">MacroCtrl3</span><span class="o">=</span>
+<span class="n">MacroCtrl4</span><span class="o">=</span>
+<span class="n">MacroCtrl5</span><span class="o">=</span>
+<span class="n">MacroCtrl6</span><span class="o">=</span>
+<span class="n">MacroCtrl7</span><span class="o">=</span>
+<span class="n">MacroCtrl8</span><span class="o">=</span>
+<span class="n">MacroCtrl9</span><span class="o">=</span>
+<span class="n">ResolutionSizeX</span><span class="o">=</span><span class="mi">1280</span>
+<span class="n">ResolutionSizeY</span><span class="o">=</span><span class="mi">720</span>
+<span class="n">LastUserConfirmedResolutionSizeX</span><span class="o">=</span><span class="mi">1280</span>
+<span class="n">LastUserConfirmedResolutionSizeY</span><span class="o">=</span><span class="mi">720</span>
+<span class="n">WindowPosX</span><span class="o">=-</span><span class="mi">1</span>
+<span class="n">WindowPosY</span><span class="o">=-</span><span class="mi">1</span>
+<span class="n">bUseDesktopResolutionForFullscreen</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">FullscreenMode</span><span class="o">=</span><span class="mi">2</span>
+<span class="n">LastConfirmedFullscreenMode</span><span class="o">=</span><span class="mi">2</span>
+<span class="n">Version</span><span class="o">=</span><span class="mi">5</span>
+
+<span class="p">[</span><span class="n">ServerSettings</span><span class="p">]</span>
+<span class="n">ShowMapPlayerLocation</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">ForceFlyerExplosives</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">PreventOfflinePvP</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">AllowThirdPersonPlayer</span><span class="o">=</span><span class="kc">True</span>
+<span class="n">PreventDownloadSurvivors</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">PreventDownloadItems</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">PreventDownloadDinos</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">PreventUploadSurvivors</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">PreventUploadItems</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">PreventUploadDinos</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">ShowFloatingDamageText</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">ServerCrosshair</span><span class="o">=</span><span class="kc">True</span>
+<span class="n">alwaysNotifyPlayerJoined</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">alwaysNotifyPlayerLeft</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">RCONPort</span><span class="o">=</span><span class="mi">27020</span>
+<span class="n">ServerPassword</span><span class="o">=</span><span class="n">password</span>
+<span class="n">ServerAdminPassword</span><span class="o">=</span><span class="n">password</span>
+<span class="n">AllowCaveBuildingPvE</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">BanListURL</span><span class="o">=</span><span class="s2">&quot;http://arkdedicated.com/banlist.txt&quot;</span>
+<span class="n">TheMaxStructuresInRange</span><span class="o">=</span><span class="mf">10500.000000</span>
+<span class="n">OxygenSwimSpeedStatMultiplier</span><span class="o">=</span><span class="mf">1.000000</span>
+<span class="n">StructurePreventResourceRadiusMultiplier</span><span class="o">=</span><span class="mf">1.000000</span>
+<span class="n">TribeNameChangeCooldown</span><span class="o">=</span><span class="mf">15.000000</span>
+<span class="n">PlatformSaddleBuildAreaBoundsMultiplier</span><span class="o">=</span><span class="mf">1.000000</span>
+<span class="n">StructurePickupTimeAfterPlacement</span><span class="o">=</span><span class="mf">30.000000</span>
+<span class="n">StructurePickupHoldDuration</span><span class="o">=</span><span class="mf">0.500000</span>
+<span class="n">AllowIntegratedSPlusStructures</span><span class="o">=</span><span class="kc">True</span>
+<span class="n">AllowHideDamageSourceFromLogs</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">AlwaysAllowStructurePickup</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">RaidDinoCharacterFoodDrainMultiplier</span><span class="o">=</span><span class="mf">1.000000</span>
+<span class="n">PvEDinoDecayPeriodMultiplier</span><span class="o">=</span><span class="mf">1.000000</span>
+<span class="n">KickIdlePlayersPeriod</span><span class="o">=</span><span class="mf">3600.000000</span>
+<span class="n">PerPlatformMaxStructuresMultiplier</span><span class="o">=</span><span class="mf">1.000000</span>
+<span class="n">AutoSavePeriodMinutes</span><span class="o">=</span><span class="mf">15.000000</span>
+<span class="n">ListenServerTetherDistanceMultiplier</span><span class="o">=</span><span class="mf">1.000000</span>
+<span class="n">MaxTamedDinos</span><span class="o">=</span><span class="mf">5000.000000</span>
+<span class="n">ItemStackSizeMultiplier</span><span class="o">=</span><span class="mf">1.000000</span>
+<span class="n">bDisableStructureDecayPvE</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">DisableDinoDecayPvE</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">AllowFlyerCarryPvE</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">RCONServerGameLogBuffer</span><span class="o">=</span><span class="mf">600.000000</span>
+<span class="n">AllowRaidDinoFeeding</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">AllowHitMarkers</span><span class="o">=</span><span class="kc">True</span>
+<span class="n">bUseCorpseLocator</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">CrossARKAllowForeignDinoDownloads</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">RandomSupplyCratePoints</span><span class="o">=</span><span class="mi">0</span>
+
+<span class="p">[</span><span class="n">ScalabilityGroups</span><span class="p">]</span>
+<span class="n">sg</span><span class="o">.</span><span class="n">ResolutionQuality</span><span class="o">=</span><span class="mi">100</span>
+<span class="n">sg</span><span class="o">.</span><span class="n">ViewDistanceQuality</span><span class="o">=</span><span class="mi">3</span>
+<span class="n">sg</span><span class="o">.</span><span class="n">AntiAliasingQuality</span><span class="o">=</span><span class="mi">3</span>
+<span class="n">sg</span><span class="o">.</span><span class="n">ShadowQuality</span><span class="o">=</span><span class="mi">3</span>
+<span class="n">sg</span><span class="o">.</span><span class="n">PostProcessQuality</span><span class="o">=</span><span class="mi">3</span>
+<span class="n">sg</span><span class="o">.</span><span class="n">TextureQuality</span><span class="o">=</span><span class="mi">3</span>
+<span class="n">sg</span><span class="o">.</span><span class="n">EffectsQuality</span><span class="o">=</span><span class="mi">3</span>
+<span class="n">sg</span><span class="o">.</span><span class="n">TrueSkyQuality</span><span class="o">=</span><span class="mi">3</span>
+<span class="n">sg</span><span class="o">.</span><span class="n">GroundClutterQuality</span><span class="o">=</span><span class="mi">3</span>
+<span class="n">sg</span><span class="o">.</span><span class="n">IBLQuality</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">sg</span><span class="o">.</span><span class="n">HeightFieldShadowQuality</span><span class="o">=</span><span class="mi">3</span>
+<span class="n">sg</span><span class="o">.</span><span class="n">GroundClutterRadius</span><span class="o">=</span><span class="mi">10000</span>
+
+<span class="p">[</span><span class="n">SessionSettings</span><span class="p">]</span>
+<span class="n">SessionName</span><span class="o">=</span><span class="n">Eagles_Ragnarok</span>
+
+<span class="p">[</span><span class="o">/</span><span class="n">Script</span><span class="o">/</span><span class="n">Engine</span><span class="o">.</span><span class="n">GameSession</span><span class="p">]</span>
+<span class="n">MaxPlayers</span><span class="o">=</span><span class="mi">70</span>
+
+<span class="p">[</span><span class="n">Ragnarok</span><span class="p">]</span>
+<span class="n">AllowMultipleTamedUnicorns</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">UnicornSpawnInterval</span><span class="o">=</span><span class="mi">12</span>
+<span class="n">EnableVolcano</span><span class="o">=</span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-13-set-ports-for-ark-server">
+<h2>Step 13: Set Ports for Ark Server<a class="headerlink" href="#step-13-set-ports-for-ark-server" title="Permalink to this headline">¶</a></h2>
+<p>Allow your Server’s firewall to listen for these incoming traffic ports:</p>
+<div class="line-block">
+<div class="line"><cite>Inbound:</cite></div>
+<div class="line-block">
+<div class="line">* Ports <code class="docutils literal notranslate"><span class="pre">27015</span> <span class="pre">-</span> <span class="pre">27020</span></code> <code class="docutils literal notranslate"><span class="pre">UDP</span></code> #Ports for client to find Ark Servers.</div>
+<div class="line">* Ports <code class="docutils literal notranslate"><span class="pre">37015</span> <span class="pre">-</span> <span class="pre">37022</span></code> <code class="docutils literal notranslate"><span class="pre">UDP</span></code> #Ports for client to find the rest of the Ark Servers.</div>
+<div class="line">* Ports <code class="docutils literal notranslate"><span class="pre">27020</span> <span class="pre">-</span> <span class="pre">27050</span></code> <code class="docutils literal notranslate"><span class="pre">TCP</span></code> and <code class="docutils literal notranslate"><span class="pre">UDP</span></code> #Steam Mainframe connections to validate server. These must not overlap with the server finding ports.</div>
+<div class="line">* Ports <code class="docutils literal notranslate"><span class="pre">7777</span> <span class="pre">-</span> <span class="pre">7790</span></code> <code class="docutils literal notranslate"><span class="pre">UDP</span></code> #The ports that Ark Client connects to server with.</div>
+<div class="line">* Port <code class="docutils literal notranslate"><span class="pre">22</span></code> <code class="docutils literal notranslate"><span class="pre">TCP</span></code> #Used to SSH into the server if need be.</div>
+</div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Every second port is actually what is used for the connections to the Ark Server from the client side. So remember to keep those ports open when you are creating your servers.</p>
+<p>For example <cite>Server1</cite> of <code class="docutils literal notranslate"><span class="pre">The</span> <span class="pre">Island</span></code> is on port <code class="docutils literal notranslate"><span class="pre">7777</span></code>. The actual main streaming to the client will be done on port <code class="docutils literal notranslate"><span class="pre">7778</span></code>. So port <code class="docutils literal notranslate"><span class="pre">7777</span> <span class="pre">+</span> <span class="pre">1</span></code> for <code class="docutils literal notranslate"><span class="pre">UDP</span></code>. You will then have to say host your <code class="docutils literal notranslate"><span class="pre">Ragnarok</span></code> server on port <code class="docutils literal notranslate"><span class="pre">7779</span></code> and <code class="docutils literal notranslate"><span class="pre">Scorched</span> <span class="pre">Earth</span></code> on port <code class="docutils literal notranslate"><span class="pre">7781</span></code>, etc.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Also allow outbound ephemeral ports for the server to be able to connect to Steam Main Frames.</p>
+</div>
+</div>
+<div class="section" id="step-14-set-directory-ownership">
+<h2>Step 14: Set Directory Ownership<a class="headerlink" href="#step-14-set-directory-ownership" title="Permalink to this headline">¶</a></h2>
+<p>Recursively set the ownership of the directory that you installed your Ark Servers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">chown</span> <span class="o">-</span><span class="n">R</span> <span class="n">ubuntu</span><span class="o">.</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">ubuntu</span><span class="o">/</span><span class="n">ArkServers</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Make sure you use the same user that you used to download the Ark Server with. If you set the wrong ownership to the wrong user or wrong path you could end up breaking your Ark Server and even your whole Ubuntu OS. PLEASE BE CAREFUL and make 100% sure you are in the correct directory and using the correct user.</p>
+</div>
+</div>
+<div class="section" id="step-15-create-systemd-unit-files">
+<h2>Step 15: Create SystemD Unit Files<a class="headerlink" href="#step-15-create-systemd-unit-files" title="Permalink to this headline">¶</a></h2>
+<p>Because Ubuntu 18.04 uses SystemD, I’ll be using SystemD units to create the Ark Server Daemons. Please note you will need elevated privilages for this.</p>
+<p>Create a SystemD Unit for each of the seven Ark Server maps at the time of this guide writing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">touch</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">systemd</span><span class="o">/</span><span class="n">system</span><span class="o">/</span><span class="n">ark</span><span class="p">{,</span><span class="o">-</span><span class="n">the</span><span class="o">-</span><span class="n">center</span><span class="p">,</span><span class="o">-</span><span class="n">scorched</span><span class="o">-</span><span class="n">earth</span><span class="p">,</span><span class="o">-</span><span class="n">ragnarok</span><span class="p">,</span><span class="o">-</span><span class="n">aberration</span><span class="p">,</span><span class="o">-</span><span class="n">extinction</span><span class="p">,</span><span class="o">-</span><span class="n">valguero</span><span class="p">}</span><span class="o">-</span><span class="n">dedicated</span><span class="o">.</span><span class="n">service</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-16-configure-ark-server-systemd-unit-files">
+<h2>Step 16: Configure Ark Server SystemD Unit Files<a class="headerlink" href="#step-16-configure-ark-server-systemd-unit-files" title="Permalink to this headline">¶</a></h2>
+<p>Open each one of the previously created unit files and place the following text in there respective places.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>You will notice that the units owner and group are ubuntu in this example. This is because ubuntu was the user I used to download the Ark Server contents. The owner for the units will need to be the same as well. Please see <strong>Step 14</strong> for more info.</p>
+</div>
+<p>For the unit <code class="docutils literal notranslate"><span class="pre">ark-dedicated.service</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[Unit]
+Description=ARK: Survival Evolved The Island dedicated Server
+Wants=network-online.target
+After=syslog.target network.target nss-lookup.target network-online.target
+
+[Service]
+ExecStartPre=/usr/games/steamcmd +login anonymous +force_install_dir /home/ubuntu/ArkServers +app_update 376030 +quit
+ExecStart=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux/ShooterGameServer &quot;TheIsland?SessionName=Eagles_TheIsland?AltSaveDirectoryName=TheIsland?Port=7777?QueryPort=27015&quot; -NoTransferFromFiltering -clusterid=cluster1
+WorkingDirectory=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux
+LimitNOFILE=100000
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s INT $MAINPID
+User=ubuntu
+Group=ubuntu
+
+[Install]
+WantedBy=multi-user.target
+</pre></div>
+</div>
+<p>For the unit <code class="docutils literal notranslate"><span class="pre">ark-the-center-dedicated.service</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[Unit]
+Description=ARK: Survival Evolved The Center dedicated Server
+Wants=network-online.target
+After=syslog.target network.target nss-lookup.target network-online.target ark-dedicated.service
+
+[Service]
+ExecStartPre=/usr/games/steamcmd +login anonymous +force_install_dir /home/ubuntu/ArkServers +app_update 376030 +quit
+ExecStart=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux/ShooterGameServer &quot;TheCenter?SessionName=Eagles_TheCenter?AltSaveDirectoryName=TheCenter?Port=7779?QueryPort=27017&quot; -NoTransferFromFiltering -clusterid=cluster1
+WorkingDirectory=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux
+LimitNOFILE=100000
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s INT $MAINPID
+User=ubuntu
+Group=ubuntu
+
+[Install]
+WantedBy=multi-user.target
+</pre></div>
+</div>
+<p>For the unit <code class="docutils literal notranslate"><span class="pre">ark-scorched-earth-dedicated.service</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[Unit]
+Description=ARK: Survival Evolved Scorched Earth dedicated Server
+Wants=network-online.target
+After=syslog.target network.target nss-lookup.target network-online.target ark-dedicated.service ark-the-center-dedicated.service
+
+[Service]
+ExecStartPre=/usr/games/steamcmd +login anonymous +force_install_dir /home/ubuntu/ArkServers +app_update 376030 +quit
+ExecStart=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux/ShooterGameServer &quot;ScorchedEarth_P?SessionName=Eagles_ScorchedEarth_P?AltSaveDirectoryName=ScorchedEarth_P?Port=7781?QueryPort=27019&quot; -NoTransferFromFiltering -clusterid=cluster1
+WorkingDirectory=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux
+LimitNOFILE=100000
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s INT $MAINPID
+User=ubuntu
+Group=ubuntu
+
+[Install]
+WantedBy=multi-user.target
+</pre></div>
+</div>
+<p>For the unit <code class="docutils literal notranslate"><span class="pre">ark-ragnarok-dedicated.service</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[Unit]
+Description=ARK: Survival Evolved Ragnarok dedicated Server
+Wants=network-online.target
+After=syslog.target network.target nss-lookup.target network-online.target ark-dedicated.service ark-the-center-dedicated.service ark-scorched-earth-dedicated.service
+
+[Service]
+ExecStartPre=/usr/games/steamcmd +login anonymous +force_install_dir /home/ubuntu/ArkServers +app_update 376030 +quit
+ExecStart=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux/ShooterGameServer &quot;Ragnarok?SessionName=Eagles_Ragnarok?AltSaveDirectoryName=Ragnarok?Port=7783?QueryPort=37015?AllowRaidDinoFeeding&quot; -NoTransferFromFiltering -clusterid=cluster1
+WorkingDirectory=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux
+LimitNOFILE=100000
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s INT $MAINPID
+User=ubuntu
+Group=ubuntu
+
+[Install]
+WantedBy=multi-user.target
+</pre></div>
+</div>
+<p>For the unit <code class="docutils literal notranslate"><span class="pre">ark-aberration-dedicated.service</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[Unit]
+Description=ARK: Survival Evolved Aberration dedicated Server
+Wants=network-online.target
+After=syslog.target network.target nss-lookup.target network-online.target ark-dedicated.service ark-the-center-dedicated.service ark-scorched-earth-dedicated.service ark-ragnarok-dedicated.service
+
+[Service]
+ExecStartPre=/usr/games/steamcmd +login anonymous +force_install_dir /home/ubuntu/ArkServers +app_update 376030 +quit
+ExecStart=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux/ShooterGameServer &quot;Aberration_P?SessionName=Eagles_Aberration_P?AltSaveDirectoryName=Aberration_P?Port=7785?QueryPort=37017&quot; -NoTransferFromFiltering -clusterid=cluster1
+WorkingDirectory=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux
+LimitNOFILE=100000
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s INT $MAINPID
+User=ubuntu
+Group=ubuntu
+
+[Install]
+WantedBy=multi-user.target
+</pre></div>
+</div>
+<p>For the unit <code class="docutils literal notranslate"><span class="pre">ark-extinction-dedicated.service</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[Unit]
+Description=ARK: Survival Evolved Extinction dedicated Server
+Wants=network-online.target
+After=syslog.target network.target nss-lookup.target network-online.target ark-dedicated.service ark-the-center-dedicated.service ark-scorched-earth-dedicated.service ark-ragnarok-dedicated.service ark-aberration-dedicated.service
+
+[Service]
+ExecStartPre=/usr/games/steamcmd +login anonymous +force_install_dir /home/ubuntu/ArkServers +app_update 376030 +quit
+ExecStart=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux/ShooterGameServer &quot;Extinction?SessionName=Eagles_Extinction?AltSaveDirectoryName=Extinction?Port=7787?QueryPort=37019&quot; -NoTransferFromFiltering -clusterid=cluster1
+WorkingDirectory=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux
+LimitNOFILE=100000
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s INT $MAINPID
+User=ubuntu
+Group=ubuntu
+
+[Install]
+WantedBy=multi-user.target
+</pre></div>
+</div>
+<p>For the unit <code class="docutils literal notranslate"><span class="pre">ark-valguero-dedicated.service</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[Unit]
+Description=ARK: Survival Evolved Valguero dedicated Server
+Wants=network-online.target
+After=syslog.target network.target nss-lookup.target network-online.target ark-dedicated.service ark-the-center-dedicated.service ark-scorched-earth-dedicated.service ark-ragnarok-dedicated.service ark-aberration-dedicated.service ark-extinction-dedicated.service
+
+[Service]
+ExecStartPre=/usr/games/steamcmd +login anonymous +force_install_dir /home/ubuntu/ArkServers +app_update 376030 +quit
+ExecStart=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux/ShooterGameServer &quot;Valguero_P?SessionName=Eagles_Valguero_P?AltSaveDirectoryName=Valguero_P?Port=7789?QueryPort=37021&quot; -NoTransferFromFiltering -clusterid=cluster1
+WorkingDirectory=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux
+LimitNOFILE=100000
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s INT $MAINPID
+User=ubuntu
+Group=ubuntu
+
+[Install]
+WantedBy=multi-user.target
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-17-allow-systemd-to-identify-ark-units">
+<h2>Step 17: Allow SystemD to identify Ark Units<a class="headerlink" href="#step-17-allow-systemd-to-identify-ark-units" title="Permalink to this headline">¶</a></h2>
+<p>Update SystemD to see the new units:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">systemctl</span> <span class="n">daemon</span><span class="o">-</span><span class="n">reload</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-18-start-the-ark-server-daemons">
+<h2>Step 18: Start the Ark Server Daemons<a class="headerlink" href="#step-18-start-the-ark-server-daemons" title="Permalink to this headline">¶</a></h2>
+<p>Start the Ark Server daemons and enable them to start on boot of the OS:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">systemctl</span> <span class="n">enable</span> <span class="o">--</span><span class="n">now</span> <span class="n">ark</span><span class="o">-*</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If one or more of the Ark services should fail, do a <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">status</span> <span class="pre">-l</span> <span class="pre">ark-*</span></code> to identify which one of the units is failing to start. Review your unit files and Ark server file permissions and ownership to ensure that they are all correct. Check that there are now typos as well.</p>
+</div>
+</div>
+<div class="section" id="step-19-check-to-see-if-the-ark-servers-are-listening">
+<h2>Step 19: Check to see if the Ark Servers are listening<a class="headerlink" href="#step-19-check-to-see-if-the-ark-servers-are-listening" title="Permalink to this headline">¶</a></h2>
+<p>Check to see if the Ark Server Ports are listening. This can take serveral minutes to populate all of them. If all goes well you should be able to see <code class="docutils literal notranslate"><span class="pre">seven</span></code> pairs of ports for each one of your Arks Servers. You can run either the commands <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">ss</span> <span class="pre">-tulp</span></code> or <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">netstat</span> <span class="pre">-tulpen</span></code> to see the listening ports. Here is an example output below:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Netid</span> <span class="n">State</span>   <span class="n">Recv</span><span class="o">-</span><span class="n">Q</span>  <span class="n">Send</span><span class="o">-</span><span class="n">Q</span>           <span class="n">Local</span> <span class="n">Address</span><span class="p">:</span><span class="n">Port</span>       <span class="n">Peer</span> <span class="n">Address</span><span class="p">:</span><span class="n">Port</span>
+<span class="n">udp</span>   <span class="n">UNCONN</span>  <span class="mi">0</span>       <span class="mi">0</span>                      <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="mi">27015</span>           <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="o">*</span>      <span class="n">users</span><span class="p">:((</span><span class="s2">&quot;ShooterGameServ&quot;</span><span class="p">,</span><span class="n">pid</span><span class="o">=</span><span class="mi">4961</span><span class="p">,</span><span class="n">fd</span><span class="o">=</span><span class="mi">11</span><span class="p">))</span>
+<span class="n">udp</span>   <span class="n">UNCONN</span>  <span class="mi">0</span>       <span class="mi">0</span>                      <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="mi">27017</span>           <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="o">*</span>      <span class="n">users</span><span class="p">:((</span><span class="s2">&quot;ShooterGameServ&quot;</span><span class="p">,</span><span class="n">pid</span><span class="o">=</span><span class="mi">5018</span><span class="p">,</span><span class="n">fd</span><span class="o">=</span><span class="mi">11</span><span class="p">))</span>
+<span class="n">udp</span>   <span class="n">UNCONN</span>  <span class="mi">0</span>       <span class="mi">0</span>                      <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="mi">27019</span>           <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="o">*</span>      <span class="n">users</span><span class="p">:((</span><span class="s2">&quot;ShooterGameServ&quot;</span><span class="p">,</span><span class="n">pid</span><span class="o">=</span><span class="mi">5080</span><span class="p">,</span><span class="n">fd</span><span class="o">=</span><span class="mi">11</span><span class="p">))</span>
+<span class="n">udp</span>   <span class="n">UNCONN</span>  <span class="mi">0</span>       <span class="mi">0</span>                      <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="mi">33181</span>           <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="o">*</span>      <span class="n">users</span><span class="p">:((</span><span class="s2">&quot;ShooterGameServ&quot;</span><span class="p">,</span><span class="n">pid</span><span class="o">=</span><span class="mi">4961</span><span class="p">,</span><span class="n">fd</span><span class="o">=</span><span class="mi">16</span><span class="p">))</span>
+<span class="n">udp</span>   <span class="n">UNCONN</span>  <span class="mi">0</span>       <span class="mi">0</span>                      <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="mi">37015</span>           <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="o">*</span>      <span class="n">users</span><span class="p">:((</span><span class="s2">&quot;ShooterGameServ&quot;</span><span class="p">,</span><span class="n">pid</span><span class="o">=</span><span class="mi">5149</span><span class="p">,</span><span class="n">fd</span><span class="o">=</span><span class="mi">11</span><span class="p">))</span>
+<span class="n">udp</span>   <span class="n">UNCONN</span>  <span class="mi">0</span>       <span class="mi">0</span>                      <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="mi">37017</span>           <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="o">*</span>      <span class="n">users</span><span class="p">:((</span><span class="s2">&quot;ShooterGameServ&quot;</span><span class="p">,</span><span class="n">pid</span><span class="o">=</span><span class="mi">5220</span><span class="p">,</span><span class="n">fd</span><span class="o">=</span><span class="mi">11</span><span class="p">))</span>
+<span class="n">udp</span>   <span class="n">UNCONN</span>  <span class="mi">0</span>       <span class="mi">0</span>                      <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="mi">37019</span>           <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="o">*</span>      <span class="n">users</span><span class="p">:((</span><span class="s2">&quot;ShooterGameServ&quot;</span><span class="p">,</span><span class="n">pid</span><span class="o">=</span><span class="mi">5283</span><span class="p">,</span><span class="n">fd</span><span class="o">=</span><span class="mi">11</span><span class="p">))</span>
+<span class="n">udp</span>   <span class="n">UNCONN</span>  <span class="mi">0</span>       <span class="mi">0</span>                      <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="mi">37021</span>           <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="o">*</span>      <span class="n">users</span><span class="p">:((</span><span class="s2">&quot;ShooterGameServ&quot;</span><span class="p">,</span><span class="n">pid</span><span class="o">=</span><span class="mi">5351</span><span class="p">,</span><span class="n">fd</span><span class="o">=</span><span class="mi">11</span><span class="p">))</span>
+<span class="n">udp</span>   <span class="n">UNCONN</span>  <span class="mi">0</span>       <span class="mi">0</span>                      <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="mi">7778</span>            <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="o">*</span>      <span class="n">users</span><span class="p">:((</span><span class="s2">&quot;ShooterGameServ&quot;</span><span class="p">,</span><span class="n">pid</span><span class="o">=</span><span class="mi">4961</span><span class="p">,</span><span class="n">fd</span><span class="o">=</span><span class="mi">18</span><span class="p">))</span>
+<span class="n">udp</span>   <span class="n">UNCONN</span>  <span class="mi">0</span>       <span class="mi">0</span>                      <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="mi">7780</span>            <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="o">*</span>      <span class="n">users</span><span class="p">:((</span><span class="s2">&quot;ShooterGameServ&quot;</span><span class="p">,</span><span class="n">pid</span><span class="o">=</span><span class="mi">5018</span><span class="p">,</span><span class="n">fd</span><span class="o">=</span><span class="mi">18</span><span class="p">))</span>
+<span class="n">udp</span>   <span class="n">UNCONN</span>  <span class="mi">0</span>       <span class="mi">0</span>                      <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="mi">7782</span>            <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="o">*</span>      <span class="n">users</span><span class="p">:((</span><span class="s2">&quot;ShooterGameServ&quot;</span><span class="p">,</span><span class="n">pid</span><span class="o">=</span><span class="mi">5080</span><span class="p">,</span><span class="n">fd</span><span class="o">=</span><span class="mi">18</span><span class="p">))</span>
+<span class="n">udp</span>   <span class="n">UNCONN</span>  <span class="mi">0</span>       <span class="mi">0</span>                      <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="mi">7784</span>            <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="o">*</span>      <span class="n">users</span><span class="p">:((</span><span class="s2">&quot;ShooterGameServ&quot;</span><span class="p">,</span><span class="n">pid</span><span class="o">=</span><span class="mi">5149</span><span class="p">,</span><span class="n">fd</span><span class="o">=</span><span class="mi">18</span><span class="p">))</span>
+<span class="n">udp</span>   <span class="n">UNCONN</span>  <span class="mi">0</span>       <span class="mi">0</span>                      <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="mi">7786</span>            <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="o">*</span>      <span class="n">users</span><span class="p">:((</span><span class="s2">&quot;ShooterGameServ&quot;</span><span class="p">,</span><span class="n">pid</span><span class="o">=</span><span class="mi">5220</span><span class="p">,</span><span class="n">fd</span><span class="o">=</span><span class="mi">18</span><span class="p">))</span>
+<span class="n">udp</span>   <span class="n">UNCONN</span>  <span class="mi">0</span>       <span class="mi">0</span>                      <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="mi">7788</span>            <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="o">*</span>      <span class="n">users</span><span class="p">:((</span><span class="s2">&quot;ShooterGameServ&quot;</span><span class="p">,</span><span class="n">pid</span><span class="o">=</span><span class="mi">5283</span><span class="p">,</span><span class="n">fd</span><span class="o">=</span><span class="mi">18</span><span class="p">))</span>
+<span class="n">udp</span>   <span class="n">UNCONN</span>  <span class="mi">0</span>       <span class="mi">0</span>                      <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="mi">7790</span>            <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="o">*</span>      <span class="n">users</span><span class="p">:((</span><span class="s2">&quot;ShooterGameServ&quot;</span><span class="p">,</span><span class="n">pid</span><span class="o">=</span><span class="mi">5351</span><span class="p">,</span><span class="n">fd</span><span class="o">=</span><span class="mi">17</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-20-connect-to-your-ark-server-via-steam-client">
+<h2>Step 20: Connect to your Ark Server via Steam Client<a class="headerlink" href="#step-20-connect-to-your-ark-server-via-steam-client" title="Permalink to this headline">¶</a></h2>
+<p>Find your Ark Servers using the Public (or private if this is a Local LAN Build or connecting via VPN) IP Address.</p>
+<ol class="arabic simple">
+<li><p>First check to see if your Steam Client is <code class="docutils literal notranslate"><span class="pre">Online</span></code>. If it is <code class="docutils literal notranslate"><span class="pre">Offline</span></code> turn it back <code class="docutils literal notranslate"><span class="pre">Online</span></code>.</p></li>
+<li><p>Open <code class="docutils literal notranslate"><span class="pre">Steam</span></code> and in the top menu go to <code class="docutils literal notranslate"><span class="pre">View</span></code> and then select <code class="docutils literal notranslate"><span class="pre">Servers</span></code>.</p></li>
+<li><p>Click on the <code class="docutils literal notranslate"><span class="pre">Favorites</span></code> tab.</p></li>
+<li><p>Click on <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">a</span> <span class="pre">Server</span></code>.</p></li>
+<li><p>Enter the <code class="docutils literal notranslate"><span class="pre">Hostname</span></code> or <code class="docutils literal notranslate"><span class="pre">IP</span> <span class="pre">address</span></code> of your Ark Server with the <code class="docutils literal notranslate"><span class="pre">Query</span> <span class="pre">Port</span></code> you used to create that server with. So that would be ports <code class="docutils literal notranslate"><span class="pre">27015</span> <span class="pre">-</span> <span class="pre">27019</span></code> and <code class="docutils literal notranslate"><span class="pre">37015</span> <span class="pre">-</span> <span class="pre">37021</span></code> in this example.</p></li>
+<li><p>Click <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">Selected</span> <span class="pre">Server</span> <span class="pre">To</span> <span class="pre">Favorites</span></code> to save the server to your favorites, so you can find it again in your Ark game, under the <code class="docutils literal notranslate"><span class="pre">Favorites</span></code> Tab.</p></li>
+<li><p>You can click on the server when it’s listed in the tab, and join it immediately if you wish.</p></li>
+</ol>
+<a class="reference internal image-reference" href="_images/ARK_steam_favourites_add.png"><img alt="_images/ARK_steam_favourites_add.png" src="_images/ARK_steam_favourites_add.png" style="width: 617.0px; height: 341.0px;" /></a>
+<p><strong>If all goes well you should now be able to connect to your new Ark Server and upload and Download Items, Dinos and Players to your hearts content.</strong></p>
+<p><strong>END OF GUIDE</strong></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, David Ryke
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
