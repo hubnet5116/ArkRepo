@@ -46,8 +46,30 @@ Once your instance/OS is launched, log into it and perform a full update and upg
 
  sudo apt update -y && sudo apt full-upgrade -y
 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Step 3: Install EFS Utilities Package
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ sudo apt-get -y install git binutils
+
+ git clone https://github.com/aws/efs-utils
+
+ cd efs-utils
+
+ ./build-deb.sh
+
+ sudo apt-get -y install ./build/amazon-efs-utils*deb
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Step 4: Add EFS drive to /etc/fstab
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ sudo vim /etc/fstab
+
+ file_system_id.efs.aws-region.amazonaws.com:/ /home/ubuntu/ArkServers nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport,_netdev 0 0
+
 ^^^^^^^^^^^^^^^^^^^^^^^^
-Step 3: Reboot Server
+Step 5: Reboot Server
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 Reboot your OS to apply updates to the kernel if their are any::
@@ -55,7 +77,7 @@ Reboot your OS to apply updates to the kernel if their are any::
  sudo reboot
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Step 4: Remove Old Packages
+Step 6: Remove Old Packages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Log back in and remove any unnecessary packages::
@@ -63,7 +85,7 @@ Log back in and remove any unnecessary packages::
  sudo apt autoremove -y
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Step 5: Install Required Libraries
+Step 7: Install Required Libraries
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Install the latest packages that contain the lib32gccl package. This is necessary for installing the SteamCMD. For Ubuntu 18.04 this package is found in the libc6 package at the time of this writing::
@@ -71,7 +93,7 @@ Install the latest packages that contain the lib32gccl package. This is necessar
  sudo apt install -y libc6 libc6-dev
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Step 6: Set Max File Limit
+Step 8: Set Max File Limit
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To ensure that the server's open files limit is high enough you will need to edit the ``/etc/sysctl.conf`` file::
@@ -85,7 +107,7 @@ Add the following line and save the file:
 `fs.file-max=100000`
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Step 7: Set OS Corefiles Limit
+Step 9: Set OS Corefiles Limit
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Add the following lines to ``/etc/security/limits.conf``:
@@ -96,7 +118,7 @@ Add the following lines to ``/etc/security/limits.conf``:
  `*             hard    nofile          1000000`
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Step 8: Enable PAM Limits
+Step 10: Enable PAM Limits
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Add the following to the ``/etc/pam.d/common-session`` file:
@@ -105,7 +127,7 @@ Add the following to the ``/etc/pam.d/common-session`` file:
 `session required pam_limits.so`
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Step 9: Install SteamCMD
+Step 11: Install SteamCMD
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Add the repository that contains the SteamCMD and install the it::
@@ -116,7 +138,7 @@ Add the repository that contains the SteamCMD and install the it::
  sudo apt install lib32gcc1 steamcmd -y
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Step 10: Create Ark Server Main Directory
+Step 12: Create Ark Server Main Directory
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Make a directory for your Ark servers::
@@ -124,21 +146,17 @@ Make a directory for your Ark servers::
  mkdir ArkServers
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Step 11: Install Ark Server via Steam
+Step 13: Install Ark Server via Steam
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Log into Steam as an anonymous user using the SteamCMD and download the latest Ark Server files:
 
 .. code::
 
- steamcmd
-  Steam> login anonymous
-  Steam> force_install_dir /home/ubuntu/ArkServers
-  Steam> app_update 376030 validate
-  Steam> exit
+ steamcmd +force_install_dir /home/ubuntu/ArkServers +login anonymous +app_update 376030 +quit
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Step 12: Setup Game User Settings for Ark Server
+Step 14: Setup Game User Settings for Ark Server
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Create the file ``/home/ubuntu/ArkServers/ShooterGame/Saved/Config/LinuxServer/GameUserSettings.ini`` and paste the following content in it. Please see GameUserSettings.ini in https://ark.gamepedia.com/Server_Configuration for more detailed info on the configuration option meanings.
@@ -354,7 +372,7 @@ Create the file ``/home/ubuntu/ArkServers/ShooterGame/Saved/Config/LinuxServer/G
  EnableVolcano=1
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Step 13: Set Ports for Ark Server
+Step 15: Set Ports for Ark Server
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Allow your Server's firewall to listen for these incoming traffic ports:
@@ -379,7 +397,7 @@ Allow your Server's firewall to listen for these incoming traffic ports:
  Also allow outbound ephemeral ports for the server to be able to connect to Steam Main Frames.
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Step 14: Set Directory Ownership
+Step 16: Set Directory Ownership
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Recursively set the ownership of the directory that you installed your Ark Servers::
@@ -391,7 +409,7 @@ Recursively set the ownership of the directory that you installed your Ark Serve
  Make sure you use the same user that you used to download the Ark Server with. If you set the wrong ownership to the wrong user or wrong path you could end up breaking your Ark Server and even your whole Ubuntu OS. PLEASE BE CAREFUL and make 100% sure you are in the correct directory and using the correct user.
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Step 15: Create SystemD Unit Files
+Step 16: Create SystemD Unit Files
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Because Ubuntu 18.04 uses SystemD, I'll be using SystemD units to create the Ark Server Daemons. Please note you will need elevated privilages for this.
@@ -401,7 +419,7 @@ Create a SystemD Unit for each of the seven Ark Server maps at the time of this 
  sudo touch /etc/systemd/system/ark{,-the-center,-scorched-earth,-ragnarok,-aberration,-extinction,-valguero}-dedicated.service
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Step 16: Configure Ark Server SystemD Unit Files
+Step 18: Configure Ark Server SystemD Unit Files
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Open each one of the previously created unit files and place the following text in there respective places.
@@ -551,7 +569,7 @@ For the unit ``ark-valguero-dedicated.service``::
  WantedBy=multi-user.target
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Step 17: Allow SystemD to identify Ark Units
+Step 19: Allow SystemD to identify Ark Units
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Update SystemD to see the new units::
@@ -559,7 +577,7 @@ Update SystemD to see the new units::
  sudo systemctl daemon-reload
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Step 18: Start the Ark Server Daemons
+Step 20: Start the Ark Server Daemons
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Start the Ark Server daemons and enable them to start on boot of the OS::
@@ -571,7 +589,7 @@ Start the Ark Server daemons and enable them to start on boot of the OS::
  If one or more of the Ark services should fail, do a ``sudo systemctl status -l ark-*`` to identify which one of the units is failing to start. Review your unit files and Ark server file permissions and ownership to ensure that they are all correct. Check that there are now typos as well.
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Step 19: Check to see if the Ark Servers are listening
+Step 21: Check to see if the Ark Servers are listening
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Check to see if the Ark Server Ports are listening. This can take serveral minutes to populate all of them. If all goes well you should be able to see ``seven`` pairs of ports for each one of your Arks Servers. You can run either the commands ``sudo ss -tulp`` or ``sudo netstat -tulpen`` to see the listening ports. Here is an example output below:
@@ -596,7 +614,7 @@ Check to see if the Ark Server Ports are listening. This can take serveral minut
  udp   UNCONN  0       0                      0.0.0.0:7790            0.0.0.0:*      users:(("ShooterGameServ",pid=5351,fd=17))
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Step 20: Connect to your Ark Server via Steam Client
+Step 22: Connect to your Ark Server via Steam Client
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Find your Ark Servers using the Public (or private if this is a Local LAN Build or connecting via VPN) IP Address.
