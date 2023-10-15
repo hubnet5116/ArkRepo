@@ -135,7 +135,7 @@ Add the repository that contains the SteamCMD and install the it::
  sudo add-apt-repository multiverse
  sudo dpkg --add-architecture i386
  sudo apt update -y
- sudo apt install lib32gcc1 steamcmd -y
+ sudo apt install lib32gcc-s1 steamcmd -y
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Step 12: Create Ark Server Main Directory
