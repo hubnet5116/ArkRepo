@@ -437,7 +437,7 @@ For the unit ``ark-dedicated.service``::
  
  [Service]
  ExecStartPre=/usr/games/steamcmd +login anonymous +force_install_dir /home/ubuntu/ArkServers +app_update 376030 +quit
- ExecStart=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux/ShooterGameServer "TheIsland?SessionName=Eagles_TheIsland?AltSaveDirectoryName=TheIsland?Port=7777?QueryPort=27015" -NoTransferFromFiltering -clusterid=cluster1
+ ExecStart=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux/ShooterGameServer "TheIsland?SessionName=Eagles_TheIsland?AltSaveDirectoryName=TheIsland?Port=7777?QueryPort=27015?listen" -NoTransferFromFiltering -clusterid=cluster1
  WorkingDirectory=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux
  LimitNOFILE=100000
  ExecReload=/bin/kill -s HUP $MAINPID
@@ -457,7 +457,7 @@ For the unit ``ark-the-center-dedicated.service``::
 
  [Service]
  ExecStartPre=/usr/games/steamcmd +login anonymous +force_install_dir /home/ubuntu/ArkServers +app_update 376030 +quit
- ExecStart=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux/ShooterGameServer "TheCenter?SessionName=Eagles_TheCenter?AltSaveDirectoryName=TheCenter?Port=7779?QueryPort=27017" -NoTransferFromFiltering -clusterid=cluster1
+ ExecStart=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux/ShooterGameServer "TheCenter?SessionName=Eagles_TheCenter?AltSaveDirectoryName=TheCenter?Port=7779?QueryPort=27017?listen" -NoTransferFromFiltering -clusterid=cluster1
  WorkingDirectory=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux
  LimitNOFILE=100000
  ExecReload=/bin/kill -s HUP $MAINPID
@@ -477,7 +477,7 @@ For the unit ``ark-scorched-earth-dedicated.service``::
  
  [Service]
  ExecStartPre=/usr/games/steamcmd +login anonymous +force_install_dir /home/ubuntu/ArkServers +app_update 376030 +quit
- ExecStart=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux/ShooterGameServer "ScorchedEarth_P?SessionName=Eagles_ScorchedEarth_P?AltSaveDirectoryName=ScorchedEarth_P?Port=7781?QueryPort=27019" -NoTransferFromFiltering -clusterid=cluster1
+ ExecStart=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux/ShooterGameServer "ScorchedEarth_P?SessionName=Eagles_ScorchedEarth_P?AltSaveDirectoryName=ScorchedEarth_P?Port=7781?QueryPort=27019?listen" -NoTransferFromFiltering -clusterid=cluster1
  WorkingDirectory=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux
  LimitNOFILE=100000
  ExecReload=/bin/kill -s HUP $MAINPID
@@ -497,7 +497,7 @@ For the unit ``ark-ragnarok-dedicated.service``::
  
  [Service]
  ExecStartPre=/usr/games/steamcmd +login anonymous +force_install_dir /home/ubuntu/ArkServers +app_update 376030 +quit
- ExecStart=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux/ShooterGameServer "Ragnarok?SessionName=Eagles_Ragnarok?AltSaveDirectoryName=Ragnarok?Port=7783?QueryPort=37015?AllowRaidDinoFeeding" -NoTransferFromFiltering -clusterid=cluster1
+ ExecStart=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux/ShooterGameServer "Ragnarok?SessionName=Eagles_Ragnarok?AltSaveDirectoryName=Ragnarok?Port=7783?QueryPort=37015?AllowRaidDinoFeeding?listen" -NoTransferFromFiltering -clusterid=cluster1
  WorkingDirectory=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux
  LimitNOFILE=100000
  ExecReload=/bin/kill -s HUP $MAINPID
@@ -517,7 +517,7 @@ For the unit ``ark-aberration-dedicated.service``::
  
  [Service]
  ExecStartPre=/usr/games/steamcmd +login anonymous +force_install_dir /home/ubuntu/ArkServers +app_update 376030 +quit
- ExecStart=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux/ShooterGameServer "Aberration_P?SessionName=Eagles_Aberration_P?AltSaveDirectoryName=Aberration_P?Port=7785?QueryPort=37017" -NoTransferFromFiltering -clusterid=cluster1
+ ExecStart=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux/ShooterGameServer "Aberration_P?SessionName=Eagles_Aberration_P?AltSaveDirectoryName=Aberration_P?Port=7785?QueryPort=37017?listen" -NoTransferFromFiltering -clusterid=cluster1
  WorkingDirectory=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux
  LimitNOFILE=100000
  ExecReload=/bin/kill -s HUP $MAINPID
@@ -537,7 +537,7 @@ For the unit ``ark-extinction-dedicated.service``::
  
  [Service]
  ExecStartPre=/usr/games/steamcmd +login anonymous +force_install_dir /home/ubuntu/ArkServers +app_update 376030 +quit
- ExecStart=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux/ShooterGameServer "Extinction?SessionName=Eagles_Extinction?AltSaveDirectoryName=Extinction?Port=7787?QueryPort=37019" -NoTransferFromFiltering -clusterid=cluster1
+ ExecStart=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux/ShooterGameServer "Extinction?SessionName=Eagles_Extinction?AltSaveDirectoryName=Extinction?Port=7787?QueryPort=37019?listen" -NoTransferFromFiltering -clusterid=cluster1
  WorkingDirectory=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux
  LimitNOFILE=100000
  ExecReload=/bin/kill -s HUP $MAINPID
@@ -557,7 +557,7 @@ For the unit ``ark-valguero-dedicated.service``::
  
  [Service]
  ExecStartPre=/usr/games/steamcmd +login anonymous +force_install_dir /home/ubuntu/ArkServers +app_update 376030 +quit
- ExecStart=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux/ShooterGameServer "Valguero_P?SessionName=Eagles_Valguero_P?AltSaveDirectoryName=Valguero_P?Port=7789?QueryPort=37021" -NoTransferFromFiltering -clusterid=cluster1
+ ExecStart=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux/ShooterGameServer "Valguero_P?SessionName=Eagles_Valguero_P?AltSaveDirectoryName=Valguero_P?Port=7789?QueryPort=37021?listen" -NoTransferFromFiltering -clusterid=cluster1
  WorkingDirectory=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux
  LimitNOFILE=100000
  ExecReload=/bin/kill -s HUP $MAINPID
@@ -567,6 +567,106 @@ For the unit ``ark-valguero-dedicated.service``::
  
  [Install]
  WantedBy=multi-user.target
+
+For the unit ``ark-crystal-isles-dedicated.service``::
+
+ [Unit]
+Description=ARK: Survival Evolved Crystal Isles dedicated Server
+Wants=network-online.target
+After=syslog.target network.target nss-lookup.target network-online.target ark-dedicated.service ark-the-center-dedicated.service ark-scorched-earth-dedicated.service ark-ragnarok-dedicated.service ark-aberration-dedicated.service ark-extinction-dedicated.service ark-valguero-dedicated.service
+
+[Service]
+ExecStartPre=/usr/games/steamcmd +login anonymous +force_install_dir /home/ubuntu/ArkServers +app_update 376030 +quit
+ExecStart=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux/ShooterGameServer "CrystalIsles?SessionName=Eagles_CrystalIsles?AltSaveDirectoryName=CrystalIsles?Port=7791?QueryPort=37023?listen" -NoTransferFromFiltering -clusterid=cluster1
+WorkingDirectory=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux
+LimitNOFILE=100000
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s INT $MAINPID
+User=ubuntu
+Group=ubuntu
+
+[Install]
+WantedBy=multi-user.target
+
+For the unit ``ark-fjordur-dedicated.service``::
+
+[Unit]
+Description=ARK: Survival Evolved Fjordur dedicated Server
+Wants=network-online.target
+After=syslog.target network.target nss-lookup.target network-online.target ark-dedicated.service ark-the-center-dedicated.service ark-scorched-earth-dedicated.service ark-ragnarok-dedicated.service ark-aberration-dedicated.service ark-extinction-dedicated.service ark-valguero-dedicated.service ark-crystal-isles-dedicated.service
+
+[Service]
+ExecStartPre=/usr/games/steamcmd +login anonymous +force_install_dir /home/ubuntu/ArkServers +app_update 376030 +quit
+ExecStart=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux/ShooterGameServer "Fjordur?SessionName=Eagles_Fjordur?AltSaveDirectoryName=Fjordur?Port=7793?QueryPort=37025?listen" -NoTransferFromFiltering -clusterid=cluster1
+WorkingDirectory=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux
+LimitNOFILE=100000
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s INT $MAINPID
+User=ubuntu
+Group=ubuntu
+
+[Install]
+WantedBy=multi-user.target
+
+For the unit ``ark-lost-isles-dedicated.service``::
+
+[Unit]
+Description=ARK: Survival Evolved Lost Island Dedicated Server
+Wants=network-online.target
+After=syslog.target network.target nss-lookup.target network-online.target
+
+[Service]
+ExecStartPre=/usr/games/steamcmd +login anonymous +force_install_dir /home/ubuntu/ArkServers +app_update 376030 +quit
+ExecStart=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux/ShooterGameServer "LostIsland?SessionName=Eagles_LostIsland?AltSaveDirectoryName=LostIsland?Port=7793?QueryPort=37025?listen" -NoTransferFromFiltering -clusterid=cluster1
+WorkingDirectory=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux
+LimitNOFILE=100000
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s INT $MAINPID
+User=ubuntu
+Group=ubuntu
+
+[Install]
+WantedBy=multi-user.target
+
+For the unit ``ark-genesis-part1-dedicated.service``::
+
+[Unit]
+Description=ARK: Survival Evolved Genesis Part 1 Dedicated Server
+Wants=network-online.target
+After=syslog.target network.target nss-lookup.target network-online.target
+
+[Service]
+ExecStartPre=/usr/games/steamcmd +login anonymous +force_install_dir /home/ubuntu/ArkServers +app_update 376030 +quit
+ExecStart=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux/ShooterGameServer "Genesis?SessionName=Eagles_Genesis?AltSaveDirectoryName=Genesis?Port=7795?QueryPort=37027?listen" -NoTransferFromFiltering -clusterid=cluster1
+WorkingDirectory=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux
+LimitNOFILE=100000
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s INT $MAINPID
+User=ubuntu
+Group=ubuntu
+
+[Install]
+WantedBy=multi-user.target
+
+For the unit ``ark-genesis-part2-dedicated.service``::
+
+[Unit]
+Description=ARK: Survival Evolved Genesis Part 2 Dedicated Server
+Wants=network-online.target
+After=syslog.target network.target nss-lookup.target network-online.target
+
+[Service]
+ExecStartPre=/usr/games/steamcmd +login anonymous +force_install_dir /home/ubuntu/ArkServers +app_update 376030 +quit
+ExecStart=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux/ShooterGameServer "Genesis2?SessionName=Eagles_Genesis2?AltSaveDirectoryName=Genesis2?Port=7797?QueryPort=37029?listen" -NoTransferFromFiltering -clusterid=cluster1
+WorkingDirectory=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux
+LimitNOFILE=100000
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s INT $MAINPID
+User=ubuntu
+Group=ubuntu
+
+[Install]
+WantedBy=multi-user.target
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Step 19: Allow SystemD to identify Ark Units
