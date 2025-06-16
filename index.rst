@@ -416,7 +416,7 @@ Because Ubuntu 18.04 uses SystemD, I'll be using SystemD units to create the Ark
 
 Create a SystemD Unit for each of the seven Ark Server maps at the time of this guide writing::
 
- sudo touch /etc/systemd/system/ark{,-the-center,-scorched-earth,-ragnarok,-aberration,-extinction,-valguero}-dedicated.service
+ sudo touch /etc/systemd/system/ark{,-the-center,-scorched-earth,-ragnarok,-aberration,-extinction,-valguero,-crystal-isles,-lost-isles,-fjordur,-genesis-part1,-genesis-part2}-dedicated.service
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Step 18: Configure Ark Server SystemD Unit Files
