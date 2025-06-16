@@ -571,99 +571,99 @@ For the unit ``ark-valguero-dedicated.service``::
 For the unit ``ark-crystal-isles-dedicated.service``::
 
  [Unit]
-Description=ARK: Survival Evolved Crystal Isles dedicated Server
-Wants=network-online.target
-After=syslog.target network.target nss-lookup.target network-online.target ark-dedicated.service ark-the-center-dedicated.service ark-scorched-earth-dedicated.service ark-ragnarok-dedicated.service ark-aberration-dedicated.service ark-extinction-dedicated.service ark-valguero-dedicated.service
+ Description=ARK: Survival Evolved Crystal Isles dedicated Server
+ Wants=network-online.target
+ After=syslog.target network.target nss-lookup.target network-online.target ark-dedicated.service ark-the-center-dedicated.service ark-scorched-earth-dedicated.service ark-ragnarok-dedicated.service ark-aberration-dedicated.service ark-extinction-dedicated.service ark-valguero-dedicated.service
 
-[Service]
-ExecStartPre=/usr/games/steamcmd +login anonymous +force_install_dir /home/ubuntu/ArkServers +app_update 376030 +quit
-ExecStart=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux/ShooterGameServer "CrystalIsles?SessionName=Eagles_CrystalIsles?AltSaveDirectoryName=CrystalIsles?Port=7791?QueryPort=37023?listen" -NoTransferFromFiltering -clusterid=cluster1
-WorkingDirectory=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux
-LimitNOFILE=100000
-ExecReload=/bin/kill -s HUP $MAINPID
-ExecStop=/bin/kill -s INT $MAINPID
-User=ubuntu
-Group=ubuntu
+ [Service]
+ ExecStartPre=/usr/games/steamcmd +login anonymous +force_install_dir /home/ubuntu/ArkServers +app_update 376030 +quit
+ ExecStart=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux/ShooterGameServer "CrystalIsles?SessionName=Eagles_CrystalIsles?AltSaveDirectoryName=CrystalIsles?Port=7791?QueryPort=37023?listen" -NoTransferFromFiltering -clusterid=cluster1
+ WorkingDirectory=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux
+ LimitNOFILE=100000
+ ExecReload=/bin/kill -s HUP $MAINPID
+ ExecStop=/bin/kill -s INT $MAINPID
+ User=ubuntu
+ Group=ubuntu
 
-[Install]
-WantedBy=multi-user.target
+ [Install]
+ WantedBy=multi-user.target
 
 For the unit ``ark-fjordur-dedicated.service``::
 
-[Unit]
-Description=ARK: Survival Evolved Fjordur dedicated Server
-Wants=network-online.target
-After=syslog.target network.target nss-lookup.target network-online.target ark-dedicated.service ark-the-center-dedicated.service ark-scorched-earth-dedicated.service ark-ragnarok-dedicated.service ark-aberration-dedicated.service ark-extinction-dedicated.service ark-valguero-dedicated.service ark-crystal-isles-dedicated.service
+ [Unit]
+ Description=ARK: Survival Evolved Fjordur dedicated Server
+ Wants=network-online.target
+ After=syslog.target network.target nss-lookup.target network-online.target ark-dedicated.service ark-the-center-dedicated.service ark-scorched-earth-dedicated.service ark-ragnarok-dedicated.service ark-aberration-dedicated.service ark-extinction-dedicated.service ark-valguero-dedicated.service ark-crystal-isles-dedicated.service
 
-[Service]
-ExecStartPre=/usr/games/steamcmd +login anonymous +force_install_dir /home/ubuntu/ArkServers +app_update 376030 +quit
-ExecStart=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux/ShooterGameServer "Fjordur?SessionName=Eagles_Fjordur?AltSaveDirectoryName=Fjordur?Port=7793?QueryPort=37025?listen" -NoTransferFromFiltering -clusterid=cluster1
-WorkingDirectory=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux
-LimitNOFILE=100000
-ExecReload=/bin/kill -s HUP $MAINPID
-ExecStop=/bin/kill -s INT $MAINPID
-User=ubuntu
-Group=ubuntu
+ [Service]
+ ExecStartPre=/usr/games/steamcmd +login anonymous +force_install_dir /home/ubuntu/ArkServers +app_update 376030 +quit
+ ExecStart=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux/ShooterGameServer "Fjordur?SessionName=Eagles_Fjordur?AltSaveDirectoryName=Fjordur?Port=7793?QueryPort=37025?listen" -NoTransferFromFiltering -clusterid=cluster1
+ WorkingDirectory=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux
+ LimitNOFILE=100000
+ ExecReload=/bin/kill -s HUP $MAINPID
+ ExecStop=/bin/kill -s INT $MAINPID
+ User=ubuntu
+ Group=ubuntu
 
-[Install]
-WantedBy=multi-user.target
+ [Install]
+ WantedBy=multi-user.target
 
 For the unit ``ark-lost-isles-dedicated.service``::
 
-[Unit]
-Description=ARK: Survival Evolved Lost Island Dedicated Server
-Wants=network-online.target
-After=syslog.target network.target nss-lookup.target network-online.target
+ [Unit]
+ Description=ARK: Survival Evolved Lost Island Dedicated Server
+ Wants=network-online.target
+ After=syslog.target network.target nss-lookup.target network-online.target
 
-[Service]
-ExecStartPre=/usr/games/steamcmd +login anonymous +force_install_dir /home/ubuntu/ArkServers +app_update 376030 +quit
-ExecStart=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux/ShooterGameServer "LostIsland?SessionName=Eagles_LostIsland?AltSaveDirectoryName=LostIsland?Port=7793?QueryPort=37025?listen" -NoTransferFromFiltering -clusterid=cluster1
-WorkingDirectory=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux
-LimitNOFILE=100000
-ExecReload=/bin/kill -s HUP $MAINPID
-ExecStop=/bin/kill -s INT $MAINPID
-User=ubuntu
-Group=ubuntu
+ [Service]
+ ExecStartPre=/usr/games/steamcmd +login anonymous +force_install_dir /home/ubuntu/ArkServers +app_update 376030 +quit
+ ExecStart=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux/ShooterGameServer "LostIsland?SessionName=Eagles_LostIsland?AltSaveDirectoryName=LostIsland?Port=7793?QueryPort=37025?listen" -NoTransferFromFiltering -clusterid=cluster1
+ WorkingDirectory=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux
+ LimitNOFILE=100000
+ ExecReload=/bin/kill -s HUP $MAINPID
+ ExecStop=/bin/kill -s INT $MAINPID
+ User=ubuntu
+ Group=ubuntu
 
-[Install]
-WantedBy=multi-user.target
+ [Install]
+ WantedBy=multi-user.target
 
 For the unit ``ark-genesis-part1-dedicated.service``::
 
-[Unit]
-Description=ARK: Survival Evolved Genesis Part 1 Dedicated Server
-Wants=network-online.target
-After=syslog.target network.target nss-lookup.target network-online.target
+ [Unit]
+ Description=ARK: Survival Evolved Genesis Part 1 Dedicated Server
+ Wants=network-online.target
+ After=syslog.target network.target nss-lookup.target network-online.target
 
-[Service]
-ExecStartPre=/usr/games/steamcmd +login anonymous +force_install_dir /home/ubuntu/ArkServers +app_update 376030 +quit
-ExecStart=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux/ShooterGameServer "Genesis?SessionName=Eagles_Genesis?AltSaveDirectoryName=Genesis?Port=7795?QueryPort=37027?listen" -NoTransferFromFiltering -clusterid=cluster1
-WorkingDirectory=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux
-LimitNOFILE=100000
-ExecReload=/bin/kill -s HUP $MAINPID
-ExecStop=/bin/kill -s INT $MAINPID
-User=ubuntu
-Group=ubuntu
+ [Service]
+ ExecStartPre=/usr/games/steamcmd +login anonymous +force_install_dir /home/ubuntu/ArkServers +app_update 376030 +quit
+ ExecStart=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux/ShooterGameServer "Genesis?SessionName=Eagles_Genesis?AltSaveDirectoryName=Genesis?Port=7795?QueryPort=37027?listen" -NoTransferFromFiltering -clusterid=cluster1
+ WorkingDirectory=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux
+ LimitNOFILE=100000
+ ExecReload=/bin/kill -s HUP $MAINPID
+ ExecStop=/bin/kill -s INT $MAINPID
+ User=ubuntu
+ Group=ubuntu
 
-[Install]
-WantedBy=multi-user.target
+ [Install]
+ WantedBy=multi-user.target
 
 For the unit ``ark-genesis-part2-dedicated.service``::
 
-[Unit]
-Description=ARK: Survival Evolved Genesis Part 2 Dedicated Server
-Wants=network-online.target
-After=syslog.target network.target nss-lookup.target network-online.target
+ [Unit]
+ Description=ARK: Survival Evolved Genesis Part 2 Dedicated Server
+ Wants=network-online.target
+ After=syslog.target network.target nss-lookup.target network-online.target
 
-[Service]
-ExecStartPre=/usr/games/steamcmd +login anonymous +force_install_dir /home/ubuntu/ArkServers +app_update 376030 +quit
-ExecStart=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux/ShooterGameServer "Genesis2?SessionName=Eagles_Genesis2?AltSaveDirectoryName=Genesis2?Port=7797?QueryPort=37029?listen" -NoTransferFromFiltering -clusterid=cluster1
-WorkingDirectory=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux
-LimitNOFILE=100000
-ExecReload=/bin/kill -s HUP $MAINPID
-ExecStop=/bin/kill -s INT $MAINPID
-User=ubuntu
-Group=ubuntu
+ [Service]
+ ExecStartPre=/usr/games/steamcmd +login anonymous +force_install_dir /home/ubuntu/ArkServers +app_update 376030 +quit
+ ExecStart=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux/ShooterGameServer "Genesis2?SessionName=Eagles_Genesis2?AltSaveDirectoryName=Genesis2?Port=7797?QueryPort=37029?listen" -NoTransferFromFiltering -clusterid=cluster1
+ WorkingDirectory=/home/ubuntu/ArkServers/ShooterGame/Binaries/Linux
+ LimitNOFILE=100000
+ ExecReload=/bin/kill -s HUP $MAINPID
+ ExecStop=/bin/kill -s INT $MAINPID
+ User=ubuntu
+ Group=ubuntu
 
 [Install]
 WantedBy=multi-user.target
